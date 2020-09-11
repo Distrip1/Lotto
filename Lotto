@@ -1,0 +1,34 @@
+import java.util.*;
+import java.math.*;
+
+public class Lotto{
+  public static void main(String argv []){
+    System.out.println("Programm zur Simulation der Ziehung der Lotto-Zahlen\nGeben Sie etwas ein, um mit der Simulation zu beginnen: ");
+    int z [] = new int [7];
+    Scanner ein = new Scanner(System.in);
+    String e = ein.nextLine();
+    for (int i = 0; i < z.length; i++){
+        boolean h = false;
+        z [i] = (int) (Math.random() * 50);
+        
+        if (z [i] == 0){
+           i--;
+           h = true;  
+        }
+        for (int j = 0; j < i; j++){
+            if (z [i] == z [j]){
+              i--;
+              h = true;
+            }  
+        }
+        if (h == false){
+           if (i == 6)
+             System.out.println("Zusatz-Zahl: " + z [i]);
+           else             
+             System.out.println((i + 1) + ". Zahl: " + z [i]);  
+        }
+        
+    }   
+  }
+
+}
